@@ -66,13 +66,30 @@ namespace BackendEngineer
         private static int MaxSequence(int[] input)
         {
             var size = input.Length;
-            if (size < 1 || size > 1000000)
+            if (size <= 1 || size > 1000000)
                 throw new InvalidOperationException("Input size must be greater than 1 and less than 1000000.");
 
-            int max = 1;
-            
+            Array.Sort(input);
+            int maxLength = 1;
+            int counter = 1;
+            int diff;
 
-            return max;
+            for (int i = 0; i < size - 1; i++)
+            {
+                diff = input[i + 1] - input[i];
+                if (diff == 1 || diff == 0)
+                    counter++;
+                else
+                {
+                    if (counter > maxLength)
+                    {
+                        maxLength = counter;
+                        counter = 1;
+                    }
+                }
+            }
+
+            return maxLength;
         }
     }
 }

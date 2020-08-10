@@ -63,7 +63,7 @@ namespace BackendEngineer
             var sum = 0;
             var size = input.Length;
 
-            if (size < 1 || size > 10000000)
+            if (size <= 1 || size > 10000000)
                 throw new InvalidOperationException("Input size must be greater than 1 and less than 10000000.");
 
             for (int i = 0; i < size; i++)
