@@ -161,9 +161,9 @@ namespace BackendEngineer
         {
             var size = input.Length;
 
-            if (size == 0 || size > 10000000)
+            if (size < 1 || size > 1000000)
             {
-                return 0;
+                throw new InvalidOperationException("Input values must be greater than 1 and less than 1000000.");
             }
 
             for (int option = -100; option < 100; option++)

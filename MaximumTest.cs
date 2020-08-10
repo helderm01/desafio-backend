@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 
 namespace BackendEngineer
 {
@@ -63,6 +64,9 @@ namespace BackendEngineer
 
             for (int i = 0; i < input.Length; i++)
             {
+                if (input[i] < 1 || input[i] > 10000000)
+                    throw new InvalidOperationException("Input values must be greater than 1 and less than 10000000.");
+
                 sum += input[i];
                 
                 if (sum < 0)
